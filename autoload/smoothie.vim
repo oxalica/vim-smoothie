@@ -350,6 +350,26 @@ function smoothie#backwards()
 endfunction
 
 ""
+" Smooth equivalent to ^Y
+function smoothie#upline()
+  if !g:smoothie_enabled || v:count1 == 1
+    exe "normal! \<C-y>"
+    return
+  endif
+  call s:update_target(-v:count1)
+endfunction
+
+""
+" Smooth equivalent to ^E
+function smoothie#downline()
+  if !g:smoothie_enabled || v:count1 == 1
+    exe "normal! \<C-e>"
+    return
+  endif
+  call s:update_target(v:count1)
+endfunction
+
+""
 " Smoothie equivalent for G and gg
 " NOTE: I have also added - movement to dempnstrate how to add more new
 "       movements in the future

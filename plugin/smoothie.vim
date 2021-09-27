@@ -11,6 +11,8 @@ if has('nvim') || has('patch-8.2.1978')
   noremap <silent> <Plug>(SmoothieUpwards)   <cmd>call smoothie#upwards()             <CR>
   noremap <silent> <Plug>(SmoothieForwards)  <cmd>call smoothie#forwards()            <CR>
   noremap <silent> <Plug>(SmoothieBackwards) <cmd>call smoothie#backwards()           <CR>
+  noremap <silent> <Plug>(SmoothieUpLine)    <cmd>call smoothie#upline()              <CR>
+  noremap <silent> <Plug>(SmoothieDownLine)  <cmd>call smoothie#downline()            <CR>
   noremap <silent> <Plug>(Smoothie_gg)       <cmd>call smoothie#cursor_movement('gg') <CR>
   noremap <silent> <Plug>(Smoothie_G)        <cmd>call smoothie#cursor_movement('G')  <CR>
 
@@ -23,6 +25,8 @@ if has('nvim') || has('patch-8.2.1978')
     silent! map <unique> <C-B>      <Plug>(SmoothieBackwards)
     silent! map <unique> <S-Up>     <Plug>(SmoothieBackwards)
     silent! map <unique> <PageUp>   <Plug>(SmoothieBackwards)
+    silent! map <unique> <C-Y>      <Plug>(SmoothieUpLine)
+    silent! map <unique> <C-E>      <Plug>(SmoothieDownLine)
     if get(g:, 'smoothie_experimental_mappings', v:false)
       silent! map <unique> gg         <Plug>(Smoothie_gg)
       silent! map <unique> G          <Plug>(Smoothie_G)
@@ -33,6 +37,8 @@ else
   nnoremap <silent> <Plug>(SmoothieUpwards)   :<C-U>call smoothie#upwards()             <CR>
   nnoremap <silent> <Plug>(SmoothieForwards)  :<C-U>call smoothie#forwards()            <CR>
   nnoremap <silent> <Plug>(SmoothieBackwards) :<C-U>call smoothie#backwards()           <CR>
+  nnoremap <silent> <Plug>(SmoothieUpLine)    :call smoothie#upline()                   <CR>
+  nnoremap <silent> <Plug>(SmoothieDownLine)  :call smoothie#downline()                 <CR>
   nnoremap <silent> <Plug>(Smoothie_gg)       :<C-U>call smoothie#cursor_movement('gg') <CR>
   nnoremap <silent> <Plug>(Smoothie_G)        :<C-U>call smoothie#cursor_movement('G')  <CR>
 
@@ -45,6 +51,8 @@ else
     silent! nmap <unique> <C-B>      <Plug>(SmoothieBackwards)
     silent! nmap <unique> <S-Up>     <Plug>(SmoothieBackwards)
     silent! nmap <unique> <PageUp>   <Plug>(SmoothieBackwards)
+    silent! nmap <unique> <C-Y>      <Plug>(SmoothieUpLine)
+    silent! nmap <unique> <C-E>      <Plug>(SmoothieDownLine)
     if get(g:, 'smoothie_experimental_mappings', v:false)
       silent! nmap <unique> gg         <Plug>(Smoothie_gg)
       silent! nmap <unique> G          <Plug>(Smoothie_G)
