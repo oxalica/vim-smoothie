@@ -31,6 +31,12 @@ if has('nvim') || has('patch-8.2.1978')
       silent! map <unique> gg         <Plug>(Smoothie_gg)
       silent! map <unique> G          <Plug>(Smoothie_G)
     endif
+    if get(g:, 'smoothie_mouse_mappings', v:false)
+      silent! map <unique> <ScrollWheelDown>   3<Plug>(SmoothieDownLine)
+      silent! map <unique> <S-ScrollWheelDown> <Plug>(SmoothieForwards)
+      silent! map <unique> <ScrollWheelUp>     3<Plug>(SmoothieUpLine)
+      silent! map <unique> <S-ScrollWheelUp>   <Plug>(SmoothieBackwards)
+    endif
   endif
 else
   nnoremap <silent> <Plug>(SmoothieDownwards) :<C-U>call smoothie#downwards()           <CR>
@@ -56,6 +62,12 @@ else
     if get(g:, 'smoothie_experimental_mappings', v:false)
       silent! nmap <unique> gg         <Plug>(Smoothie_gg)
       silent! nmap <unique> G          <Plug>(Smoothie_G)
+    endif
+    if get(g:, 'smoothie_mouse_mappings', v:false)
+      silent! nmap <unique> <ScrollWheelDown>   3<Plug>(SmoothieDownLine)
+      silent! nmap <unique> <S-ScrollWheelDown> <Plug>(SmoothieForwards)
+      silent! nmap <unique> <ScrollWheelUp>     3<Plug>(SmoothieUpLine)
+      silent! nmap <unique> <S-ScrollWheelUp>   <Plug>(SmoothieBackwards)
     endif
   endif
 endif
